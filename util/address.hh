@@ -78,18 +78,23 @@ private:
   //! Constructor from ip/host, service/port, and hints to the resolver.
   //! 从 ip/主机名、服务/端口 和 解析器参数 构造 Address 对象的构造函数。
   Address( const std::string& node, const std::string& service, const addrinfo& hints );
+  // 一个私有构造函数，只能在类内部或友元函数中调用，不能被外部代码直接使用。它可能是作为其他公有构造函数的内部实现辅助函数。
 
 public:
   //! Construct by resolving a hostname and servicename.
+  //! 通过解析主机名和服务名来构造 Address 对象。
   Address( const std::string& hostname, const std::string& service );
 
   //! Construct from dotted-quad string ("18.243.0.1") and numeric port.
+  //! 从点分十进制字符串（如 "18.243.0.1"）和数字端口号构造 Address 对象。
   explicit Address( const std::string& ip, std::uint16_t port = 0 );
 
   //! Construct from a [sockaddr *](@ref man7::socket).
+  //! 从 [sockaddr 指针] 构造 Address 对象。
   Address( const sockaddr* addr, std::size_t size );
 
   //! Equality comparison.
+  //! 相等性比较操作符。
   bool operator==( const Address& other ) const;
   bool operator!=( const Address& other ) const { return not operator==( other ); }
 
