@@ -96,12 +96,15 @@ void get_URL( const string& host, const string& path )
   // Address 有一个构造函数为 Address( const std::string& hostname, const std::string& service );
   // host 就是 参数的那个host
   // service 
-  Address addr(host, "HTTP");
+  Address addr(host, "80");
   cout<< "Address created: " << addr.ip() << endl;
 
   // 2. 现在已经有了ip 和 方法 需要去连接 服务端
+  // 方法签名   void connect( const Address& address );
   TCPSocket socket;
   socket.connect(addr);
+
+  // 3. 接下来肯定是要用上path 那基本上还是说 需要去看socket.hh吧
   cout<<path;
 }
 
