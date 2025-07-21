@@ -27,15 +27,22 @@ protected:
   // 请将任何额外的状态添加到ByteStream中，而不是Writer和Reader接口中
   uint64_t capacity_;
   /*
+  <1>. c++开发者常识1
   uint64_t 是一个固定宽度整型：
 
   u = unsigned (无符号)
   int = integer (整数)
   64 = 64位 (8字节)
   _t = type (类型后缀，表示这是一个类型定义)
-  
+
   _t 后缀的含义
-  _t 后缀是 C/C++ 中的命名约定，表示这是一个类型定义 (type definition)。这些类型通常通过 typedef 定义：*/
+  _t 后缀是 C/C++ 中的命名约定，表示这是一个类型定义 (type definition)。这些类型通常通过 typedef 定义：
+  
+  <2>. c++开发者常识2
+  capacity_后面带_   提高代码可读性
+  1.一眼就能看出 capacity_ 是类的成员变量
+  2.不需要使用 this->capacity 来明确指定
+  */
 
   bool error_ {};
 };
