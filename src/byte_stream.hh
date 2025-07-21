@@ -26,6 +26,17 @@ protected:
   // Please add any additional state to the ByteStream here, and not to the Writer and Reader interfaces.
   // 请将任何额外的状态添加到ByteStream中，而不是Writer和Reader接口中
   uint64_t capacity_;
+  /*
+  uint64_t 是一个固定宽度整型：
+
+  u = unsigned (无符号)
+  int = integer (整数)
+  64 = 64位 (8字节)
+  _t = type (类型后缀，表示这是一个类型定义)
+  
+  _t 后缀的含义
+  _t 后缀是 C/C++ 中的命名约定，表示这是一个类型定义 (type definition)。这些类型通常通过 typedef 定义：*/
+
   bool error_ {};
 };
 
