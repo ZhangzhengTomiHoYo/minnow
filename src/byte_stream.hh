@@ -4,6 +4,9 @@
 #include <string>
 #include <string_view>
 
+// 需要队列
+#include <queue>
+
 class Reader;
 class Writer;
 
@@ -53,6 +56,16 @@ protected:
   std::string s {}; // 初始化为空字符串（调用默认构造函数）
   int* ptr {};      // 初始化为nullptr（指针类型）
   */
+
+  // 因为数据是写到缓冲区的，所以命名为buffer_
+  std::queue<char> buffer_ {}; 
+  // 已写
+  uint64_t bytes_pushed_ {};
+  // 已读
+  uint64_t bytes_poped_ {};
+  // 是否关闭
+  bool closed_ {};
+
 };
 
 class Writer : public ByteStream
