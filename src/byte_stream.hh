@@ -45,6 +45,14 @@ protected:
   */
 
   bool error_ {};
+  /*
+  在 C++ 中，{} 可用于对变量进行零初始化或者默认初始化：
+  bool error_ {};  // 初始化为false（布尔类型的默认值）
+  int x {};         // 初始化为0（整数类型）
+  double y {};      // 初始化为0.0（浮点数类型）
+  std::string s {}; // 初始化为空字符串（调用默认构造函数）
+  int* ptr {};      // 初始化为nullptr（指针类型）
+  */
 };
 
 class Writer : public ByteStream
